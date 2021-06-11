@@ -11,13 +11,13 @@ app.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
 
 # Root URL - user uploads file
 @app.route('/')
-def index():
+def index_route():
      # Set The upload HTML template '\templates\index.html'
     return render_template('index.html')
 
 
 # Catches uploaded file from user
-@app.route("/", methods=['POST'])
+@app.route("/uploader", methods=['POST'])
 def uploadFiles():
       # get the uploaded file
       uploaded_file = request.files['file']
@@ -26,8 +26,8 @@ def uploadFiles():
           # set the file path
            uploaded_file.save(file_path)
           # save the file
-      return redirect(url_for('index'))
+      return redirect(url_for('index_route'))
 
 # Run app
 if (__name__ == "__main__"):
-     app.run(debug=True)
+     app.run(debug=True) # set to false when deploying to live production website environment
