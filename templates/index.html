@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>FLASK CSV File Upload</title>
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
   </head>
   <body>
     <h1>Upload your CSV file</h1>
@@ -9,5 +10,6 @@
       <p><input type="file" name="file"></p>
       <p><input type="submit" value="Submit"></p>
     </form>
+    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
   </body>
 </html>
